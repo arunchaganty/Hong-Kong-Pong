@@ -3,10 +3,6 @@ Hong Kong Pong
 
 Hong Kong Pong is a zany pong version written in Haskell, using SDL. 
 
-> import Prelude
-> import Data.IORef
-> import Data.StateVar
-> import Control.Concurrent
 > import Graphics.UI.SDL as SDL
 > import Graphics.UI.SDL.Framerate as FPS
 > import qualified Physics.Hipmunk as H
@@ -22,8 +18,8 @@ Some initialisation routines:
 >   drawWallpaper surf bg_path
 >   return surf
 >   where 
->      swidth  = 640
->      sheight = 480
+>      -- swidth  = 640
+>      -- sheight = 480
 >      bg_path = "data/bg/sunrise0.jpg"
 >
 > initPhysics :: IO H.Space
@@ -58,7 +54,7 @@ The main event loop:
 The keypress handler, of course,
 
 > keyPressHandler :: Keysym -> IO ()
-> keyPressHandler (Keysym key mod unicode) = return ()
+> keyPressHandler (Keysym key modKeys unicode) = return ()
 
 > main :: IO ()
 > main = do
